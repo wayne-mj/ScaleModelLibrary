@@ -2,7 +2,7 @@
 
 ### Background
 
-This library was originally a collection of spread sheets that were created to convert from imperial measurements to metric for modelling.
+This library was originally a collection of spread sheets that were created to convert from imperial measurements to metric for modelling and is a rewrite/rework of my previous library that I had worked on.
 
 The spread sheet included tables for HO, OO, and user scale:
 - Ruler measurements with increments from 1/16th to 1/4 of an inch between 0 and 12 inches,
