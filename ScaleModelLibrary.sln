@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetricSystem-Test", "Metric
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FractionSystem-Test", "FractionSystem-Test\FractionSystem-Test.csproj", "{1D0B90B6-BB3A-4C21-A95C-1AFA8D5D58B6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InchFeature-Test", "InchFeature-Test\InchFeature-Test.csproj", "{35E2DBDF-FA76-40C2-AFD7-10D35BE9A37E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{1D0B90B6-BB3A-4C21-A95C-1AFA8D5D58B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1D0B90B6-BB3A-4C21-A95C-1AFA8D5D58B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1D0B90B6-BB3A-4C21-A95C-1AFA8D5D58B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35E2DBDF-FA76-40C2-AFD7-10D35BE9A37E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35E2DBDF-FA76-40C2-AFD7-10D35BE9A37E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35E2DBDF-FA76-40C2-AFD7-10D35BE9A37E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35E2DBDF-FA76-40C2-AFD7-10D35BE9A37E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

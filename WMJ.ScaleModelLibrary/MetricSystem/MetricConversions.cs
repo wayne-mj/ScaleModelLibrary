@@ -1,11 +1,14 @@
 namespace WMJ.ScaleModelLibrary.MetricSystem;
 
-public static class MetricConversion
+public static partial class MetricConversion
 {
 
     private static int decimalPrecision = 2;
     private static int inchPrecision = 64;
-    private static readonly int MaxDecimalPrecision = 5;    
+
+    // Maximum decimal precision is 5 to prevent integer overflow
+    private static readonly int MaxDecimalPrecision = 2; //5;    
+    private static readonly int baseDenominator = (int)Math.Pow(10, MaxDecimalPrecision);
 
     /// <summary>
     /// Sets the resolution of the inch fractions (1/64, 1/32, 1/16, 1/8, 1/4, 1/2). Default is 64.
