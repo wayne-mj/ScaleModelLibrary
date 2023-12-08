@@ -1,3 +1,5 @@
+using WMJ.ScaleModelLibrary.FractionSystem;
+
 namespace WMJ.ScaleModelLibrary.MetricSystem;
 
 /// <summary>
@@ -32,6 +34,7 @@ public class ImperialMeasurementModel
     public int Inches { get; set; } = 0;
     public int Numerator { get; set; } = 0;     // 0 in this case means no fraction
     public int Denominator { get; set; } = 0;   // 0 in this case means no fraction
+    public ClosestImperialFractionModel? ClosestImperialFraction { get; set; }
 }
 
 public class MetricMeasurementModel
@@ -40,4 +43,11 @@ public class MetricMeasurementModel
     public double Metres { get; set; } = 0;
     public double Centimetres { get; set; } = 0;
     public double Millimetres { get; set; } = 0;
+}
+
+public class ClosestImperialFractionModel
+{
+    public FractionModel? LowerImperialFraction { get; set; }
+    public FractionModel? ImperialFraction { get; set; }
+    public FractionModel? UpperImperialFraction { get; set; }
 }
