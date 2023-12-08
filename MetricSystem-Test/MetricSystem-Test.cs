@@ -12,8 +12,8 @@ public class Tests
     [TestCase(-1, ExpectedResult = 0)]
     [TestCase(0, ExpectedResult = 0)]
     [TestCase(1, ExpectedResult = 1)]
-    [TestCase(10, ExpectedResult = 2)]
-    [TestCase(int.MaxValue, ExpectedResult = 2)]
+    [TestCase(10, ExpectedResult = 4)]
+    [TestCase(int.MaxValue, ExpectedResult = 4)]
     public int TestDecimalPrecisionConfiguration(int precision)
     {
         MetricConversion.DecimalPrecision = precision;

@@ -12,7 +12,7 @@ public class Tests
     [TestCase(0.25, 0, 1, 4, 0, 1, 4, 0, 1, 4)]
     [TestCase(0.26, 0, 1, 4, 0, 13, 50, 0, 17, 64)]
     [TestCase(0.27, 0, 17, 64, 0, 27, 100, 0, 9, 32)]
-    [TestCase(1.4562, 1, 29, 64, 1, 23, 50, 1, 15, 32)]
+    [TestCase(1.4562, 1, 29, 64, 1, 4561, 10000, 1, 15, 32)]
     [TestCase(1.999999, 2, 0, 1, 2, 0, 1, 2, 1, 64)]
     public void TestClosestInch(double inches, 
     int expectedLowerUnits, int expectedLowerNumerator, int expectedLowerDenominator,

@@ -7,7 +7,7 @@ public static partial class MetricConversion
     private static int inchPrecision = 64;
 
     // Maximum decimal precision is 5 to prevent integer overflow
-    private static readonly int MaxDecimalPrecision = 2; //5;    
+    private static readonly int MaxDecimalPrecision = 4; //5;    
     private static readonly int baseDenominator = (int)Math.Pow(10, MaxDecimalPrecision);
 
     /// <summary>
