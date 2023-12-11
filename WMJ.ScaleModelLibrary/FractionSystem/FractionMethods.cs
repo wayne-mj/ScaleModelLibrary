@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 using System.Net;
 
@@ -369,6 +370,46 @@ public static class Fractions
             // other than a divide by zero error or integer overflow,
             // which should have been caught above.
             fraction.Status = ex.Message;
+        }
+
+        return fraction;
+    }
+
+    /// <summary>
+    /// Method to create an improper fraction from a whole number and a fraction
+    /// </summary>
+    /// <param name="iUnit"></param>
+    /// <param name="iNumerator"></param>
+    /// <param name="iDenominator"></param>
+    /// <returns></returns>
+    public static FractionModel ImproperFraction(int iUnit, int iNumerator, int iDenominator)
+    {
+        FractionModel fraction = new();
+        
+        long lNumerator = (long)(iUnit * iDenominator) + iNumerator;
+
+        if (iDenominator == 0)
+        {
+            fraction = new()
+            {
+                Status = "Divide by zero error"
+            };
+        }        
+        else if (iUnit > 0 && iNumerator > 0 && lNumerator < int.MaxValue && lNumerator > 0)
+        {
+            fraction = new()
+            {
+                Numerator = (iUnit * iDenominator) + iNumerator,
+                Denominator = iDenominator,
+                Status = "OK"
+            };
+        }
+        else
+        {
+            fraction = new()
+            {
+                Status = "Integer overflow"
+            };
         }
 
         return fraction;
