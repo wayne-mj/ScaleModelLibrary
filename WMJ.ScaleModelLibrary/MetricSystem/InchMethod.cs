@@ -33,7 +33,8 @@ public static partial class MetricConversion
 
         closestImperialFractionModel = new ClosestImperialFractionModel
         {
-            ImperialFraction = simplifiedFraction
+            ImperialFraction = simplifiedFraction,
+            currentInches = inches            
         };
 
         // Second part, using the current unit, numerator and denominator, find the closest imperial fraction
@@ -60,6 +61,10 @@ public static partial class MetricConversion
         var simplifiedBelow = Fractions.LowestCommonDenominator(below, (int)InchPrecision);
 
         closestImperialFractionModel.LowerImperialFraction = simplifiedBelow;
+        closestImperialFractionModel.lowerInches = (double)simplifiedBelow.Units + (double)simplifiedBelow.Numerator / (double)simplifiedBelow.Denominator;
+
+        // Round the lowerInches to the MaxDecimalPrecision to prevent floating point errors
+        closestImperialFractionModel.lowerInches = Math.Round(closestImperialFractionModel.lowerInches, MaxDecimalPrecision);
 
         // Third part, using the current unit, numerator and denominator, find the closest imperial fraction
         // higher than the current value
@@ -85,6 +90,10 @@ public static partial class MetricConversion
         var simplifiedAbove = Fractions.LowestCommonDenominator(above, (int)InchPrecision);
 
         closestImperialFractionModel.UpperImperialFraction = simplifiedAbove;
+        closestImperialFractionModel.upperInches = (double)simplifiedAbove.Units + (double)simplifiedAbove.Numerator / (double)simplifiedAbove.Denominator;
+
+        // Round the upperInches to the MaxDecimalPrecision to prevent floating point errors
+        closestImperialFractionModel.upperInches = Math.Round(closestImperialFractionModel.upperInches, MaxDecimalPrecision);
 
         return closestImperialFractionModel;
     }

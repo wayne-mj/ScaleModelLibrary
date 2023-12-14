@@ -48,6 +48,9 @@ public class MetricMeasurementModel
 public class ClosestImperialFractionModel
 {
     public FractionModel? LowerImperialFraction { get; set; }
+    public double lowerInches { get; set; } = 0;
     public FractionModel? ImperialFraction { get; set; }
+    public double currentInches { get; set; } = 0;
     public FractionModel? UpperImperialFraction { get; set; }
+    public double upperInches { get; set; } = 0;
 }
