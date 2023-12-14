@@ -11,7 +11,7 @@ public static partial class MetricConversion
         int below = 0; int above = 0;
 
         // Using MaxDecimalPrecision to prevent the possibility of an integer overflow
-        inches = Math.Round(inches, MaxDecimalPrecision);
+        inches = Math.Round(inches, Configuration.MaxDecimalPrecision);
 
         // If there is a Unit value, hold onto it
         int localInchUnit = (int)Math.Floor(inches);
@@ -20,13 +20,13 @@ public static partial class MetricConversion
         double localInches = inches - localInchUnit;
         
         // Convert the decimal portion of the inches to a fraction
-        double localNumerator = Math.Floor(localInches * baseDenominator);
-        double localDenominator = baseDenominator;
+        double localNumerator = Math.Floor(localInches * Configuration.baseDenominator);
+        double localDenominator = Configuration.baseDenominator;
 
         // First part, using the current unit, numerator and denominator, find the lowest common denominator
         if (localInchUnit > 0)
         {
-            localNumerator += localInchUnit * baseDenominator;
+            localNumerator += localInchUnit * Configuration.baseDenominator;
         }
 
         var simplifiedFraction = Fractions.LowestCommonDenominator((int)localNumerator, (int)localDenominator);
@@ -57,7 +57,7 @@ public static partial class MetricConversion
             below += localInchUnit * (int)InchFractions.OneSixtyFourth;
         }
 
-        var simplifiedBelow = Fractions.LowestCommonDenominator(below, (int)InchPrecision);
+        var simplifiedBelow = Fractions.LowestCommonDenominator(below, (int)Configuration.InchPrecision);
 
         closestImperialFractionModel.LowerImperialFraction = simplifiedBelow;
 
@@ -82,7 +82,7 @@ public static partial class MetricConversion
             above += localInchUnit * (int)InchFractions.OneSixtyFourth;
         }
 
-        var simplifiedAbove = Fractions.LowestCommonDenominator(above, (int)InchPrecision);
+        var simplifiedAbove = Fractions.LowestCommonDenominator(above, (int)Configuration.InchPrecision);
 
         closestImperialFractionModel.UpperImperialFraction = simplifiedAbove;
 
