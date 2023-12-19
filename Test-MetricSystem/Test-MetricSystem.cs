@@ -1,4 +1,4 @@
-namespace MetricSystem_Test;
+namespace Test_MetricSystem;
 
 public class Tests
 {

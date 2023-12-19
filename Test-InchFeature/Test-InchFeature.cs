@@ -1,4 +1,4 @@
-namespace InchFeature_Test;
+namespace Test_InchFeature;
 
 public class Tests
 {

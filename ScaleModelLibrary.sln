@@ -5,11 +5,11 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WMJ.ScaleModelLibrary", "WMJ.ScaleModelLibrary\WMJ.ScaleModelLibrary.csproj", "{33FB2BB8-8AD3-40C9-9DFC-20FFDCA7B6B4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetricSystem-Test", "MetricSystem-Test\MetricSystem-Test.csproj", "{E8CB7385-94B5-4A4F-A977-0C307D719391}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test-FractionSystem", "Test-FractionSystem\Test-FractionSystem.csproj", "{1F9F790F-4094-46AC-B00C-60EBA38556C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FractionSystem-Test", "FractionSystem-Test\FractionSystem-Test.csproj", "{1D0B90B6-BB3A-4C21-A95C-1AFA8D5D58B6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test-MetricSystem", "Test-MetricSystem\Test-MetricSystem.csproj", "{A54F529B-19DF-4A21-892A-B1BE49943E13}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InchFeature-Test", "InchFeature-Test\InchFeature-Test.csproj", "{35E2DBDF-FA76-40C2-AFD7-10D35BE9A37E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test-InchFeature", "Test-InchFeature\Test-InchFeature.csproj", "{A05E88DB-2A37-4470-AC65-2AA047DBB095}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,17 +24,21 @@ Global
 		{33FB2BB8-8AD3-40C9-9DFC-20FFDCA7B6B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{33FB2BB8-8AD3-40C9-9DFC-20FFDCA7B6B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{33FB2BB8-8AD3-40C9-9DFC-20FFDCA7B6B4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E8CB7385-94B5-4A4F-A977-0C307D719391}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E8CB7385-94B5-4A4F-A977-0C307D719391}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E8CB7385-94B5-4A4F-A977-0C307D719391}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E8CB7385-94B5-4A4F-A977-0C307D719391}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1D0B90B6-BB3A-4C21-A95C-1AFA8D5D58B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1D0B90B6-BB3A-4C21-A95C-1AFA8D5D58B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1D0B90B6-BB3A-4C21-A95C-1AFA8D5D58B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1D0B90B6-BB3A-4C21-A95C-1AFA8D5D58B6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{35E2DBDF-FA76-40C2-AFD7-10D35BE9A37E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{35E2DBDF-FA76-40C2-AFD7-10D35BE9A37E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{35E2DBDF-FA76-40C2-AFD7-10D35BE9A37E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{35E2DBDF-FA76-40C2-AFD7-10D35BE9A37E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F9F790F-4094-46AC-B00C-60EBA38556C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F9F790F-4094-46AC-B00C-60EBA38556C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F9F790F-4094-46AC-B00C-60EBA38556C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F9F790F-4094-46AC-B00C-60EBA38556C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A54F529B-19DF-4A21-892A-B1BE49943E13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A54F529B-19DF-4A21-892A-B1BE49943E13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A54F529B-19DF-4A21-892A-B1BE49943E13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A54F529B-19DF-4A21-892A-B1BE49943E13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A05E88DB-2A37-4470-AC65-2AA047DBB095}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A05E88DB-2A37-4470-AC65-2AA047DBB095}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A05E88DB-2A37-4470-AC65-2AA047DBB095}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A05E88DB-2A37-4470-AC65-2AA047DBB095}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
