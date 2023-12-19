@@ -1,4 +1,4 @@
-namespace FractionSystem_Test;
+namespace Test_FractionSystem;
 
 public class Tests
 {

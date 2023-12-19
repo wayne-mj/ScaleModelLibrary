@@ -1,0 +1,25 @@
+name: Run tests in known good environment
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      
+      - name: Setup .Net 8.0
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.x
+      
+      - name: Install dependencies
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --configuration Release
+      
+      - name: Test
+        run: dotnet test --configuration Release --no-build --verbosity normal
