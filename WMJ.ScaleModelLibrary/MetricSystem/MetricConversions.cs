@@ -55,6 +55,8 @@ public static partial class MetricConversion
     public static double InchesToMillimetres(double Inches) => Math.Round(Inches * 25.4, DecimalPrecision);
 
     public static double MetresToMillimetres(double Metres) => Math.Round(Metres * 1000, DecimalPrecision);
+    public static double MetresToCentimetres(double Metres) => Math.Round(Metres * 100, DecimalPrecision);
+    public static double CentimetresToMetres(double Centimetres) => Math.Round(Centimetres / 100, DecimalPrecision);
     public static double CentimetresToMillimetres(double Centimetres) => Math.Round(Centimetres * 10, DecimalPrecision);
     public static double MillimetresToCentimetres(double Millimetres) => Math.Round(Millimetres / 10, DecimalPrecision);
     public static double MillimetresToMetres(double Millimetres) => Math.Round(MillimetresToCentimetres(Millimetres) / 100, DecimalPrecision);

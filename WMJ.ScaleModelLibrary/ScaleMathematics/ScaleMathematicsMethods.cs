@@ -31,20 +31,36 @@ public static partial class ScaleMathematics
         return result;
     }
 
-    public static ScaleMetricModel ScaleMetricMeasurements(Metrics metrics, double measurement, double scale)
+    public static ScaleMetricMeasurementsModel ScaleMetricMeasurements(Metrics metrics, double measurement, double scale)
     {
-        var results = ScaledMillimetres(metrics, measurement, scale);
+        ScaleMetricMeasurementsModel scaleMetricModel = new();
 
-        ScaleMetricModel scaleMetricModel = new()
+        var results = ScaledMillimetres(metrics, measurement, scale);
+        
+        switch (metrics)
         {
-            ScaleMetricMeasurement = new MetricMeasurementModel
-            {
-                Metres = MetricConversion.MillimetresToMetres(results),
-                Centimetres = MetricConversion.MillimetresToCentimetres(results),
-                Millimetres = results
-            },
-            Scale = scale            
-        };
+            case Metrics.Metres:
+                scaleMetricModel.Metres = measurement;
+                scaleMetricModel.Centimetres = MetricConversion.MetresToCentimetres(measurement);
+                scaleMetricModel.Millimetres = MetricConversion.MetresToMillimetres(measurement);
+                scaleMetricModel.ScaledMillimetres = results;
+                scaleMetricModel.Scale = scale;
+                break;
+            case Metrics.Centimetres:
+                scaleMetricModel.Metres = MetricConversion.CentimetresToMetres(measurement);
+                scaleMetricModel.Centimetres = measurement;
+                scaleMetricModel.Millimetres = MetricConversion.CentimetresToMillimetres(measurement);
+                scaleMetricModel.ScaledMillimetres = results;
+                scaleMetricModel.Scale = scale;
+                break;
+            case Metrics.Millimetres:
+                scaleMetricModel.Metres = MetricConversion.MillimetresToMetres(measurement);
+                scaleMetricModel.Centimetres = MetricConversion.MillimetresToCentimetres(measurement);
+                scaleMetricModel.Millimetres = measurement;
+                scaleMetricModel.ScaledMillimetres = results;
+                scaleMetricModel.Scale = scale;
+                break;
+        }        
 
         return scaleMetricModel;
 
