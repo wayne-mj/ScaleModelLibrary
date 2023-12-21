@@ -2,17 +2,17 @@ using WMJ.ScaleModelLibrary.MetricSystem;
 
 namespace WMJ.ScaleModelLibrary.ScaleMathematics;
 
-public class ScaleMetricModel
-{
-    public MetricMeasurementModel? ScaleMetricMeasurement { get; set; }
-    public double Scale { get; set; }
-}
+// public class ScaleMetricModel
+// {
+//     public MetricMeasurementModel? ScaleMetricMeasurement { get; set; }
+//     public double Scale { get; set; }
+// }
 
-public class ScaleImperialModel
-{
-    public ImperialMeasurementModel? ScaleImperialMeasurement { get; set; }
-    public double Scale { get; set; }
-}
+// public class ScaleImperialModel
+// {
+//     public ImperialMeasurementModel? ScaleImperialMeasurement { get; set; }
+//     public double Scale { get; set; }
+// }
 
 public class ScaleMetricMeasurementsModel
 {
@@ -22,4 +22,17 @@ public class ScaleMetricMeasurementsModel
     public double Millimetres { get; set; } = 0;
     public double Scale { get; set; } = 0;
     public double ScaledMillimetres { get; set; } = 0;
+}
+
+public class ScaleImperialMeasurementsModel
+{
+    public int Id { get; set; } = 0;
+    public double Feet { get; set; } = 0;
+    public double Inches { get; set; } = 0;
+    public int FractionNumerator { get; set; } = 0;
+    public int FractionDenominator { get; set; } = 0;
+    public double Scale { get; set; } = 0;
+    public double ScaledMillimetres { get; set; } = 0;
+    public double ScaledInches { get; set; } = 0;
+    public ClosestImperialFractionModel ScaledClosestImperialFraction { get; set; } = new();
 }
