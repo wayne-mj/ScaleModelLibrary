@@ -50,11 +50,14 @@ public static partial class MetricConversion
     /// Quick metric conversion macros
     /// </summary>
     public static double FeetToMilliMetres(double feet) => Math.Round(FeetToInches(feet) * 25.4, DecimalPrecision);
-    public static double FeetToInches(double Feet) => Math.Round((Feet * 12.0), DecimalPrecision);
-    //public static double YardToFeet(double Yard) => Math.Round(Yard * 3, DecimalPrecision);
+    public static double FeetToInches(double Feet) => Math.Round(Feet * 12.0, DecimalPrecision);
+    public static double YardToFeet(double Yard) => Math.Round(Yard * 3, DecimalPrecision);
     public static double InchesToMillimetres(double Inches) => Math.Round(Inches * 25.4, DecimalPrecision);
+    public static double InchesToFeet(double Inches) => Math.Round(Inches / 12, DecimalPrecision);
 
     public static double MetresToMillimetres(double Metres) => Math.Round(Metres * 1000, DecimalPrecision);
+    public static double MetresToCentimetres(double Metres) => Math.Round(Metres * 100, DecimalPrecision);
+    public static double CentimetresToMetres(double Centimetres) => Math.Round(Centimetres / 100, DecimalPrecision);
     public static double CentimetresToMillimetres(double Centimetres) => Math.Round(Centimetres * 10, DecimalPrecision);
     public static double MillimetresToCentimetres(double Millimetres) => Math.Round(Millimetres / 10, DecimalPrecision);
     public static double MillimetresToMetres(double Millimetres) => Math.Round(MillimetresToCentimetres(Millimetres) / 100, DecimalPrecision);
