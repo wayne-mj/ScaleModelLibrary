@@ -175,4 +175,67 @@ public static partial class ScaleMathematics
 
         return scaleImperialModels;
     }
+
+    /// <summary>
+    /// Returns a List Table of Inches for a given scale
+    /// </summary>
+    /// <param name="inch"></param>
+    /// <param name="fraction"></param>
+    /// <param name="scale"></param>
+    /// <returns></returns>
+    public static List<ScaleImperialMeasurementsModel> InchTable(int inch, InchFractions fraction, double scale)
+    {
+        List<ScaleImperialMeasurementsModel> scaleImperialModels = new();
+
+        ScaleImperialMeasurementsModel holder = new()
+        {
+            Id =0,
+            Feet = 0,
+            Inches = inch,
+            FractionNumerator = 0,
+            FractionDenominator = 0,
+            Scale = scale,
+            ScaledMillimetres = ScaledMillimetres(Metrics.Inches, inch, scale),
+            ScaledInches = MetricConversion.MillimetresToInches(ScaledMillimetres(Metrics.Inches, inch, scale)),
+            ScaledClosestImperialFraction = MetricConversion.ClosestInchFraction(MetricConversion.MillimetresToInches(ScaledMillimetres(Metrics.Inches, inch, scale)))
+        };
+
+        scaleImperialModels.Add(holder);
+
+        for (int i = 1; i < (int)fraction; i++)
+        {
+            var simplified = Fractions.LowestCommonDenominator(i, (int)fraction);
+
+            holder = new()
+            {
+                Id = i,
+                Feet = 0,
+                Inches = inch,
+                FractionNumerator = simplified.Numerator,
+                FractionDenominator = simplified.Denominator,
+                Scale = scale,
+                ScaledMillimetres = ScaledMillimetres(Metrics.Inches, inch + (double)i / (double)fraction, scale),
+                ScaledInches = MetricConversion.MillimetresToInches(ScaledMillimetres(Metrics.Inches, inch + (double)i / (double)fraction, scale)),
+                ScaledClosestImperialFraction = MetricConversion.ClosestInchFraction(MetricConversion.MillimetresToInches(ScaledMillimetres(Metrics.Inches, inch + (double)i / (double)fraction, scale)))
+            };
+            scaleImperialModels.Add(holder);
+        }
+
+        holder = new()
+        {
+            Id = scaleImperialModels.Count,
+            Feet = 0,
+            Inches = inch + 1,
+            FractionNumerator = 0,
+            FractionDenominator = 0,
+            Scale = scale,
+            ScaledMillimetres = ScaledMillimetres(Metrics.Inches, inch + 1, scale),
+            ScaledInches = MetricConversion.MillimetresToInches(ScaledMillimetres(Metrics.Inches, inch + 1, scale)),
+            ScaledClosestImperialFraction = MetricConversion.ClosestInchFraction(MetricConversion.MillimetresToInches(ScaledMillimetres(Metrics.Inches, inch + 1, scale)))
+        };
+
+        scaleImperialModels.Add(holder);
+        
+        return scaleImperialModels;
+    }
 }
