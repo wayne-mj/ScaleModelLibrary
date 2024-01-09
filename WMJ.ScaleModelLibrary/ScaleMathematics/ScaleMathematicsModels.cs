@@ -36,3 +36,11 @@ public class ScaleImperialMeasurementsModel
     public double ScaledInches { get; set; } = 0;
     public ClosestImperialFractionModel ScaledClosestImperialFraction { get; set; } = new();
 }
+
+public class MultiScaleModel
+{
+    public int Id {get; set;} = 0;
+    public double Scale { get; set; } = 0;
+    public string ScaleDescription { get; set; } = string.Empty;
+    public List<ScaleImperialMeasurementsModel> ScaledTable { get; set; } = new();
+}

@@ -238,4 +238,32 @@ public static partial class ScaleMathematics
         
         return scaleImperialModels;
     }
+
+    /// <summary>
+    /// Returns a List Table of Feet and Inches for a given list of scales
+    /// </summary>
+    /// <param name="feet"></param>
+    /// <param name="ScaleList"></param>
+    /// <returns></returns>
+    public static List<MultiScaleModel> MultiScaleTable(double feet, List<double>ScaleList)
+    {
+        List<MultiScaleModel> multiScaleTable = new();
+        int Count = 0;
+
+        foreach (double scale in ScaleList)
+        {
+            MultiScaleModel multiScaleModel = new()
+            {
+                Id = Count,
+                Scale = scale,
+                ScaleDescription = $"1:{scale}",
+                ScaledTable = FeetTable(feet, scale)
+            };
+
+            multiScaleTable.Add(multiScaleModel);
+            Count++;                        
+        }
+
+        return multiScaleTable;
+    }
 }
