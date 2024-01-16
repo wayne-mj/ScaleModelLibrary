@@ -361,3 +361,9 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# Hide unused projects
+Test-FractionSystem/
+Test-InchFeature/
+Test-MetricSystem/
+Test-ScaleMath/
