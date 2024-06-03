@@ -5,8 +5,6 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WMJ.ScaleModelLibrary", "WMJ.ScaleModelLibrary\WMJ.ScaleModelLibrary.csproj", "{33FB2BB8-8AD3-40C9-9DFC-20FFDCA7B6B4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{60F59231-9FF0-4E18-A7CE-88AD66C892EF}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test-WMJ.ScaleModelLibrary", "Test-WMJ.ScaleModelLibrary\Test-WMJ.ScaleModelLibrary.csproj", "{FC5BBDD0-5509-4FEA-B95F-6FB6C0E365A0}"
 EndProject
 Global
@@ -26,10 +24,6 @@ Global
 		{1D0B90B6-BB3A-4C21-A95C-1AFA8D5D58B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1D0B90B6-BB3A-4C21-A95C-1AFA8D5D58B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1D0B90B6-BB3A-4C21-A95C-1AFA8D5D58B6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{60F59231-9FF0-4E18-A7CE-88AD66C892EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{60F59231-9FF0-4E18-A7CE-88AD66C892EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{60F59231-9FF0-4E18-A7CE-88AD66C892EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{60F59231-9FF0-4E18-A7CE-88AD66C892EF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FC5BBDD0-5509-4FEA-B95F-6FB6C0E365A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FC5BBDD0-5509-4FEA-B95F-6FB6C0E365A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC5BBDD0-5509-4FEA-B95F-6FB6C0E365A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
