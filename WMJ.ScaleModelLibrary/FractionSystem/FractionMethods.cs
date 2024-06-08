@@ -334,13 +334,16 @@ public static class Fractions
             }
             else
             {
-                for (int _HighestCommonDenominator = 1; _HighestCommonDenominator <= Denominator; _HighestCommonDenominator++)
-                {
-                    if ((Numerator % _HighestCommonDenominator == 0) && (Denominator % _HighestCommonDenominator == 0))
-                    {
-                        HighestCommonDenominator = _HighestCommonDenominator;
-                    }
-                }
+                // Replaced the loop with a recursive function
+                // for (int _HighestCommonDenominator = 1; _HighestCommonDenominator <= Denominator; _HighestCommonDenominator++)
+                // {
+                //     if ((Numerator % _HighestCommonDenominator == 0) && (Denominator % _HighestCommonDenominator == 0))
+                //     {
+                //         HighestCommonDenominator = _HighestCommonDenominator;
+                //     }
+                // }
+
+                HighestCommonDenominator = GCDFunction(Numerator, Denominator);
 
                 values[0] = Numerator / HighestCommonDenominator;
                 values[1] = Denominator / HighestCommonDenominator;
@@ -374,6 +377,26 @@ public static class Fractions
 
         return fraction;
     }
+
+    /// <summary>
+    /// Method to reduce a fraction to its lowest terms
+    /// </summary>
+    private static int GCDFunction(int a, int b)
+    {
+        if (b == 0)
+        {
+            return a;
+        }
+        else if (a == 0)
+        {
+            return b;
+        }
+        else
+        {
+            return GCDFunction(b, a % b);
+        }
+    }
+
 
     /// <summary>
     /// Method to create an improper fraction from a whole number and a fraction
