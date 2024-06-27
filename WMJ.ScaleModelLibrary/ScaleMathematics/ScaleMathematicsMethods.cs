@@ -1,6 +1,7 @@
 using WMJ.ScaleModelLibrary.MetricSystem;
 using WMJ.ScaleModelLibrary.FractionSystem;
-using Microsoft.VisualBasic;
+using WMJ.ScaleModelLibrary.TrigMathematics;
+//using Microsoft.VisualBasic;
 
 namespace WMJ.ScaleModelLibrary.ScaleMathematics;
 
@@ -265,5 +266,105 @@ public static partial class ScaleMathematics
         }
 
         return multiScaleTable;
+    }
+
+    /// <summary>
+    /// Create the plot points for an arc
+    /// </summary>
+    /// <param name="radius"></param>
+    /// <param name="arc"></param>
+    /// <returns></returns>
+    public static List<PlotXY> GeneratePlotPoints(double radius, int arc)
+    {
+        List<PlotXY> plotPoints = [];
+
+        for (int i = 0 ; i <= arc; i++)
+        {
+            plotPoints.Add(new PlotXY
+            {
+                X = Math.Round(Trigonometry.Adj_hyp_ang_deg(radius, i),1),
+                Y = Math.Round(Trigonometry.Opp_hyp_ang_deg(radius, i),1)
+            });
+        }
+
+        return plotPoints;
+    }
+
+    /// <summary>
+    /// Create the plot points for an arc with an increment
+    /// </summary>
+    /// <param name="radius"></param>
+    /// <param name="arc"></param>
+    /// <param name="increment"></param>
+    /// <returns></returns>
+    public static List<PlotXY> GeneratePlotPoints(double radius, int arc, int increment)
+    {
+        List<PlotXY> plotPoints = [];
+
+        for (int i = 0 ; i <= arc; i+=increment)
+        {
+            plotPoints.Add(new PlotXY
+            {
+                X = Math.Round(Trigonometry.Adj_hyp_ang_deg(radius, i),1),
+                Y = Math.Round(Trigonometry.Opp_hyp_ang_deg(radius, i),1)
+            });
+        }
+
+        return plotPoints;
+    }
+
+    /// <summary>
+    /// Create a table for to represent a helix in one revolution
+    /// </summary>
+    /// <param name="radius"></param>
+    /// <param name="support"></param>
+    /// <param name="increment"></param>
+    /// <returns></returns>
+    public static List<Helix> HelixTable (double radius, double support, double increment)
+    {
+        List<Helix> helixTable = [];
+        double[] height = new double[9];
+        int count = 0;        
+        double degrees;
+
+        degrees = 45;
+
+        for (int i =0 ; i <= 360 ; i += (int)degrees)
+        {            
+            if (count > 0)
+            {
+                height[count] = height[count -1] + increment;
+            }
+            else
+            {
+                height[count] += increment;
+            }
+            helixTable.Add(new Helix
+            {
+                height = height[count],
+                degree = i,
+                radius = radius,
+                support = support,
+            });
+            count ++;
+        }
+
+        count = 0;
+
+        for (int i = (int)degrees; i <= 360 + (int)degrees; i += (int)degrees)
+        {
+            double denominator = (2.0 * Trigonometry.pi * radius) / (360.0 / (double)i);
+            double _gradient = height[count] /  denominator;
+            helixTable[count].gradient = Math.Round(_gradient * 100, 2);
+            count++;
+        }
+
+        for (int i = 0; i < helixTable.Count; i++)
+        {
+            helixTable[i].clearance = helixTable[helixTable.Count-1].height - helixTable[0].height - support;
+        }
+
+
+        return helixTable;
     }
 }

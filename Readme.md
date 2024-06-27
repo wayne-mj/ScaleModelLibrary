@@ -40,3 +40,13 @@ InchFractions InchPrecision
 This property ranges from 1/64" to 1/2".
 
 The remaining methods are macros to convert between Imperial to Imperial, Imperial to Metric and Metric to Metric measurements.
+
+### Updates
+
+I have written some updated routines, and modified the code to improve performance.  Additionally, code that I have written in Fortran has been ported across and incorporated into the library.
+
+The mathematics was far easier to implement in Fortran than it was in C#.  Trying to work with List<> in .Net seemed cumbersome and slow compared to arrays in Fortran.  Even coding Linked Lists in Fortran made sense.
+
+A simple test for integer overflow is one line in Fortran, even rounding.  But in .Net, it got complicated fast.
+
+Even floating point errors - The compiler offers a warning that the parentheses are redundant for C# **NO THEY ARE NOT!** Too many times I have had my math break because I didn't put in the parentheses, especially when I am working with fractions.
