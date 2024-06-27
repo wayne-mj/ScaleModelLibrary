@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 using System.Net;
+using System.Security.Cryptography.X509Certificates;
 
 namespace WMJ.ScaleModelLibrary.FractionSystem;
 
@@ -19,6 +20,8 @@ public static class Fractions
         FractionModel fraction;
         long lNumerator;
         long lDenominator;
+        // Overflow check
+        bool overflow;
 
         // Check for divide by zero
         if (firstDenominator == 0 || secondDenominator == 0)
@@ -37,8 +40,10 @@ public static class Fractions
             lNumerator = (long)firstNumerator * (long)secondDenominator + (long)secondNumerator * (long)firstDenominator;
             lDenominator = (long)firstDenominator * (long)secondDenominator;
 
+            overflow = chkOverflow(lNumerator) || chkOverflow(lDenominator);
             // Check for integer overflow
-            if (lNumerator > int.MaxValue || lDenominator > int.MaxValue)
+            //if (lNumerator > int.MaxValue || lDenominator > int.MaxValue)
+            if (overflow)
             {
                 fraction = new()
                 {
@@ -62,8 +67,10 @@ public static class Fractions
             lNumerator = (long)firstNumerator + (long)secondNumerator;
             lDenominator = (long)firstDenominator;
 
+            overflow = chkOverflow(lNumerator) || chkOverflow(lDenominator);
             // Check for integer overflow
-            if (lNumerator > int.MaxValue || lDenominator > int.MaxValue)
+            //if (lNumerator > int.MaxValue || lDenominator > int.MaxValue)
+            if (overflow)
             {
                 fraction = new()
                 {
@@ -99,6 +106,7 @@ public static class Fractions
         FractionModel fraction;
         long lNumerator;
         long lDenominator;
+        bool overflow;
 
         // Check for divide by zero
         if (firstDenominator == 0 || secondDenominator == 0)
@@ -117,8 +125,11 @@ public static class Fractions
             lNumerator = (long)firstNumerator * (long)secondDenominator - (long)secondNumerator * (long)firstDenominator;
             lDenominator = (long)firstDenominator * (long)secondDenominator;
 
+            overflow = chkOverflow(lNumerator) || chkOverflow(lDenominator);
+
             // Check for integer overflow
-            if (lNumerator > int.MaxValue || lDenominator > int.MaxValue || lNumerator < int.MinValue || lDenominator < int.MinValue)
+            //if (lNumerator > int.MaxValue || lDenominator > int.MaxValue || lNumerator < int.MinValue || lDenominator < int.MinValue)
+            if (overflow)
             {
                 fraction = new()
                 {
@@ -171,6 +182,7 @@ public static class Fractions
         FractionModel fraction;
         long lNumerator;
         long lDenominator;
+        bool overflow;
 
         // Check for divide by zero
         if (firstDenominator == 0 || secondDenominator == 0)
@@ -189,8 +201,11 @@ public static class Fractions
             lNumerator = (long)firstNumerator * (long)secondNumerator;
             lDenominator = (long)firstDenominator * (long)secondDenominator;
 
+            overflow = chkOverflow(lNumerator) || chkOverflow(lDenominator);
+
             // Check for integer overflow
-            if (lNumerator > int.MaxValue || lDenominator > int.MaxValue)
+            //if (lNumerator > int.MaxValue || lDenominator > int.MaxValue)
+            if (overflow)
             {
                 fraction = new()
                 {
@@ -436,5 +451,22 @@ public static class Fractions
         }
 
         return fraction;
+    }
+
+    /// <summary>
+    /// Method to check for integer overflow
+    /// </summary>
+    /// <param name="testInteger"></param>
+    /// <returns></returns>
+    public static bool chkOverflow(long testInteger)
+    {
+        if (testInteger > int.MaxValue || testInteger < int.MinValue)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }

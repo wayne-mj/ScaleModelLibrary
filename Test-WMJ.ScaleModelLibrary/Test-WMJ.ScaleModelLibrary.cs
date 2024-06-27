@@ -353,4 +353,15 @@ public class Tests
             Assert.That(result.Status, Is.EqualTo(status));
         });
     }
+
+    [Test]
+    [TestCase(1,false)]
+    [TestCase(2,false)]
+    [TestCase(int.MaxValue,false)]
+    [TestCase((long)int.MaxValue+1,true)]
+    public void TestIntegerOverflow(long value, bool expected)
+    {
+        var result = Fractions.chkOverflow(value);
+        Assert.That(result, Is.EqualTo(expected));
+    }
 }
