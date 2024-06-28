@@ -1,0 +1,23 @@
+name: Get Version
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - 'v*' # Run this workflow when a tag starting with 'v' is pushed
+
+jobs:
+  get-version:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Get version from tag
+        id: getversion
+        uses: wayne-mj/getversion@v1.3
+        #with:
+        #  tag: ${{ github.ref }}
+      - name: Print version
+        run: echo "Version is ${{ steps.getversion.outputs.release_version }}"
