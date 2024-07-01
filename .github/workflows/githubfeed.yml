@@ -34,6 +34,8 @@ jobs:
     - name: Get version from tag
       id: getversion
       uses: wayne-mj/getversion@v1.5
+      with:
+        version-format: 'without-v'
 
     - name: 'Pack project'
       run: dotnet pack ${{ env.PROJECT_PATH }} --no-restore --no-build --configuration Release --include-symbols -p:PackageVersion=${{ steps.getversion.outputs.release_version }} --output ${{ env.PACKAGE_OUTPUT_DIRECTORY }}
