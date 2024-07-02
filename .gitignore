@@ -367,3 +367,4 @@ Test-FractionSystem/
 Test-InchFeature/
 Test-MetricSystem/
 Test-ScaleMath/
+.vscode/
