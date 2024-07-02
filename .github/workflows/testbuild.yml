@@ -17,7 +17,7 @@ jobs:
       
       - name: Get version from tag
         id: getversion
-        uses: wayne-mj/getversion@v1.3
+        uses: wayne-mj/getversion@v1.5
         
       - name: Print version
         run: echo "Version is ${{ steps.getversion.outputs.release_version }}"
